@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&family=Roboto+Slab&display=swap" rel="stylesheet">
+    <title>Application</title>
+  <head>
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body{
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: sans-serif;
+        background-color: purple;
+        padding-top: 7%;
+        padding-left: 0;
+      }
+
+      .wrapper{
+        height: 300px;
+        width: 450px;
+        background-color: #e7c9a9;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 0;
+        max-width: 550px;
+      }
+
+      .letter{
+        position: relative;
+        width: 80%;
+        height: 80%;
+        background-color: white;
+        border-radius: 15px;
+        z-index: 2;
+      }
+      
+      form{
+      display: flex;
+      flex-direction: column;
+      padding: 1vw 3vw;
+      padding-left: 20%;
+      width: 90%;
+      max-width: 550px;
+      border-radius: 15px;
+      box-sizing: border-box;
+      font-family: 'Roboto Slab', serif;;
+    }
+
+      form input, form textarea, form select{
+        border: 0;
+        margin: 10px 0;
+        background: aliceblue;
+        font-size: 10px;
+        cursor: pointer;
+        box-sizing: border-box;
+        font-family: 'Roboto Slab', serif;;
+      }
+
+      .send-button{
+        background-color: #03989E;
+        color: white;
+        border: none;
+        outline: none;
+        font-size: 10px;
+        cursor: pointer;
+        width: 50px;
+        height: 20px;
+        border-radius: 25px;
+        transition: hover 0.15s;
+        margin-left: 75px;
+        box-sizing: border-box;
+        font-family: 'Roboto Slab', serif;;
+      }
+
+      .send-button:hover{
+        background-color:#A4D4F2;
+      }
+      
+
+      .envelope{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        border-top: 150px solid transparent;
+        border-right: 225px solid #ffdab9;
+        border-bottom: 150px solid  #ffdab9;
+        border-left: 225px solid #fdd5b1;
+        z-index: 3;
+      }
+
+      .lid{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        border-right: 225px solid transparent;
+        border-bottom: 250px solid transparent;
+        border-left: 225px solid transparent;
+        transform-origin: top;
+        transition: transform 0.25s linear;
+        }
+
+      .lid.one {
+        border-top: 150px solid #ffcca8;
+        transform: rotateX(0deg);
+        z-index: 3;
+        transition-delay: 0.75s;
+      }
+
+      .lid.two{
+        border-top: 150px solid #e7c9a9;
+        transform: rotateX(90deg);
+        z-index: 1;
+        transition-delay: 0.5s;
+      }
+
+      .wrapper:hover .lid.one{
+        transform: rotateX(90deg);
+        transition-delay: 0s;
+      }
+
+      .wrapper:hover .lid.two{
+        transform: rotateX(180deg);
+        transition-delay: 0.25s;
+      }
+
+      .wrapper:hover .letter{
+        transform: translateY(-260px);
+        transition-delay: 0.5s;
+      }
+
+      h3{
+        font-family:  'Mountains of Christmas', cursive;
+      }
+
+      .invitation{
+        position: relative;
+      }
+  
+    /* Iphone XR*/ 
+      @media only screen 
+    and (min-device-width: 414px) 
+    and (max-device-width: 896px) 
+    and (-webkit-min-device-pixel-ratio: 1){
+      .wrapper{
+        height: 240px;
+        width: 360px;
+        background-color: #e7c9a9;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 0;
+        max-width: 550px;
+      }
+      .envelope{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        border-top: 120px solid transparent;
+        border-right: 180px solid #ffdab9;
+        border-bottom: 120px solid  #ffdab9;
+        border-left: 180px solid #fdd5b1;
+        z-index: 3;
+      }
+
+      .lid{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        border-right: 180px solid transparent;
+        border-bottom: 200px solid transparent;
+        border-left: 180px solid transparent;
+        transform-origin: top;
+        transition: transform 0.25s linear;
+        }
+
+      .lid.one {
+        border-top: 120px solid #ffcca8;
+        transform: rotateX(0deg);
+        z-index: 3;
+        transition-delay: 0.75s;
+      }
+
+      .lid.two{
+        border-top: 120px solid #e7c9a9;
+        transform: rotateX(90deg);
+        z-index: 1;
+        transition-delay: 0.5s;
+      }
+
+      .send-button{
+        width: 40px;
+        height: 16px;
+      }
+
+      .wrapper:hover .letter{
+        transform: translateY(-230px);
+        transition-delay: 0.5s;
+      }
+
+      .letter{
+        position: relative;
+        width: 80%;
+        height: 87%;
+        background-color: white;
+        border-radius: 15px;
+        z-index: 2;
+      }
+
+      form{
+        padding-left: 15%;
+      }
+
+      .send-button{
+        margin-left: 39%;
+      }
+    }
+
+    /*Ipad Air*/
+    @media only screen 
+  and (min-device-width: 820px) 
+  and (max-device-width: 1180px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+    .wrapper{
+        height: 300px;
+        width: 450px;
+        background-color: #e7c9a9;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 0;
+        max-width: 550px;
+      }
+
+      .letter{
+        position: relative;
+        width: 80%;
+        height: 80%;
+        background-color: white;
+        border-radius: 15px;
+        z-index: 2;
+      }
+      
+      form{
+      display: flex;
+      flex-direction: column;
+      padding: 1vw 3vw;
+      padding-left: 20%;
+      width: 90%;
+      max-width: 550px;
+      border-radius: 15px;
+      box-sizing: border-box;
+      font-family: 'Roboto Slab', serif;;
+    }
+
+      form input, form textarea, form select{
+        border: 0;
+        margin: 10px 0;
+        background: aliceblue;
+        font-size: 10px;
+        cursor: pointer;
+        box-sizing: border-box;
+        font-family: 'Roboto Slab', serif;;
+      }
+
+      .send-button{
+        background-color: #03989E;
+        color: white;
+        border: none;
+        outline: none;
+        font-size: 10px;
+        cursor: pointer;
+        width: 50px;
+        height: 20px;
+        border-radius: 25px;
+        transition: hover 0.15s;
+        margin-left: 75px;
+        box-sizing: border-box;
+        font-family: 'Roboto Slab', serif;;
+        margin-left: 37%;
+        margin-top: 5%;
+      }
+
+      .send-button:hover{
+        background-color:#A4D4F2;
+      }
+      
+      .envelope{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        border-top: 150px solid transparent;
+        border-right: 225px solid #ffdab9;
+        border-bottom: 150px solid  #ffdab9;
+        border-left: 225px solid #fdd5b1;
+        z-index: 3;
+      }
+
+      .lid{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        border-right: 225px solid transparent;
+        border-bottom: 250px solid transparent;
+        border-left: 225px solid transparent;
+        transform-origin: top;
+        transition: transform 0.25s linear;
+        }
+
+      .lid.one {
+        border-top: 150px solid #ffcca8;
+        transform: rotateX(0deg);
+        z-index: 3;
+        transition-delay: 0.75s;
+      }
+
+      .lid.two{
+        border-top: 150px solid #e7c9a9;
+        transform: rotateX(90deg);
+        z-index: 1;
+        transition-delay: 0.5s;
+      }
+      .wrapper:hover .letter{
+        transform: translateY(-250px);
+        transition-delay: 0.5s;
+      }
+  }
+
+  /*Iphone 12 Pro*/
+  @media only screen 
+  and (min-device-width: 390px) 
+  and (max-device-height: 844px) 
+  and (-webkit-min-device-pixel-ratio: 1){
+    .wrapper{
+        height: 240px;
+        width: 360px;
+        background-color: #e7c9a9;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 0;
+        max-width: 550px;
+      }
+      .envelope{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        border-top: 120px solid transparent;
+        border-right: 180px solid #ffdab9;
+        border-bottom: 120px solid  #ffdab9;
+        border-left: 180px solid #fdd5b1;
+        z-index: 3;
+      }
+
+      .lid{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        border-right: 180px solid transparent;
+        border-bottom: 200px solid transparent;
+        border-left: 180px solid transparent;
+        transform-origin: top;
+        transition: transform 0.25s linear;
+        }
+
+      .lid.one {
+        border-top: 120px solid #ffcca8;
+        transform: rotateX(0deg);
+        z-index: 3;
+        transition-delay: 0.75s;
+      }
+
+      .lid.two{
+        border-top: 120px solid #e7c9a9;
+        transform: rotateX(90deg);
+        z-index: 1;
+        transition-delay: 0.5s;
+      }
+
+      .send-button{
+        width: 40px;
+        height: 16px;
+      }
+
+      .wrapper:hover .letter{
+        transform: translateY(-210px);
+        transition-delay: 0.5s;
+      }
+
+      .letter{
+        position: relative;
+        width: 80%;
+        height: 87%;
+        background-color: white;
+        border-radius: 15px;
+        z-index: 2;
+      }
+
+      form{
+        padding-left: 15%;
+      }
+
+      .send-button{
+        margin-left: 39%;
+      }
+    }
+
+    @media only screen 
+  and (min-device-width: 360px) 
+  and (max-device-height: 740px) 
+  and (-webkit-min-device-pixel-ratio: 1){
+    .wrapper{
+        height: 192px;
+        width: 288px;
+        background-color: #e7c9a9;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 0;
+        max-width: 550px;
+      }
+      .envelope{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        border-top: 96px solid transparent;
+        border-right: 144px solid #ffdab9;
+        border-bottom: 96px solid  #ffdab9;
+        border-left: 144px solid #fdd5b1;
+        z-index: 3;
+      }
+
+      .lid{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        border-right: 144px solid transparent;
+        border-bottom: 160px solid transparent;
+        border-left: 144px solid transparent;
+        transform-origin: top;
+        transition: transform 0.25s linear;
+        }
+
+      .lid.one {
+        border-top: 96x solid #ffcca8;
+        transform: rotateX(0deg);
+        z-index: 3;
+        transition-delay: 0.75s;
+      }
+
+      .lid.two{
+        border-top: 96px solid #e7c9a9;
+        transform: rotateX(90deg);
+        z-index: 1;
+        transition-delay: 0.5s;
+      }
+
+      .send-button{
+        width: 36px;
+        height: 15px;
+      }
+
+      .wrapper:hover .letter{
+        transform: translateY(-210px);
+        transition-delay: 0.5s;
+      }
+
+      .letter{
+        position: relative;
+        width: 80%;
+        height: 87%;
+        background-color: white;
+        border-radius: 15px;
+        z-index: 2;
+      }
+      form{
+      display: flex;
+      flex-direction: column;
+      padding: 1vw 3vw;
+      padding-left: 15%;
+      width: 90%;
+      max-width: 550px;
+      border-radius: 15px;
+      box-sizing: border-box;
+      font-family: 'Roboto Slab', serif;;
+    }
+
+      form input, form textarea, form select{
+        border: 0;
+        margin: 5px 0;
+        background: aliceblue;
+        font-size: 8px;
+        cursor: pointer;
+        box-sizing: border-box;
+        font-family: 'Roboto Slab', serif;;
+      }
+
+      .send-button{
+        font-size: 8px;
+        margin-left: 39%;
+        margin-top: 5%;
+      }
+
+      
+    }
+  
+      
+    </style>
+  <body>
+    <div class="invitation">
+      <div class="wrapper">
+        <div class="lid one"></div>
+        <div class="lid two"></div>
+        <div class="envelope"></div>
+        <div class="letter">
+          <form action="https://formsubmit.co/de6961b34ef3a56f73645eb6a6a3eb2a" method="POST">
+            <h3 style="padding-left: 21%;">Christmas Party</h3>
+            <input type="text" name="Name" placeholder="Name" required>
+            <input type="email" name="Email" placeholder="Email" required>
+            <select name="Serving">
+              <option>Vegan</option>
+              <option>Vegetarian</option>
+              <option>Non-specialty</option>
+            </select>
+            <textarea name="Message" rows="3" placeholder="Comment"></textarea>
+            <button class="send-button" type="submit">Send</button>
+        </div>
+        </div>
+    </div>
+  </body>
+<html>

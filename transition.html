@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale= 1.0">
+  <style>
+    *{
+      margin: 0px;
+      padding: 0px;
+      font-family: sans-serif;
+    }
+    body{
+      height: 100vh;
+      background: purple;
+    }
+
+    .container{
+      height: 60vh;
+      width: 30vw;
+      position: relative;
+      top: 50vh;
+      left: 50vw; 
+      transform: translate(-50%, -50%);
+      perspective: 1000px;
+    }
+
+    .box{
+      height: 250px;
+      width: 250px;
+      position: relative;
+      top: 100px;
+      left: 100px;
+      /*transform: rotate(-90deg);*/
+      transform-style: preserve-3d;
+      animation: animate 5s infinite;
+    }
+
+    @keyframes animate{
+      0%{
+        transform: rotateX(45deg) rotateY(-45deg);
+      }
+
+      25%{
+        transform: rotateX(-45deg) rotateY(-45deg);
+      }
+
+      50%{
+        transform: rotateX(45deg) rotateY(-45deg);
+      }
+      0%{
+        transform: rotateX(-45deg) rotateY(45deg);
+      }
+      0%{
+        transform: rotateX(45deg) rotateY(-45deg);
+      }
+    }
+
+    .card{
+      height: 250px;
+      width: 250px;
+      text-align: center;
+      padding: 32px 0px;
+      color: white;
+      background: white;
+      border: 2px solid purple;
+      font-size: 32px;
+      box-sizing: border-box;
+      position: absolute;
+    }
+
+    #front{
+      transform: translateZ(125px);
+    }
+
+    #back{
+      transform: translateZ(-125px);
+    }
+    #left{
+      right: 125px;
+      transform: rotateY(-90deg);
+    }
+
+    #right{
+      left: 125px;
+      transform: rotateY(90deg);
+    }
+
+    #top{
+      bottom: 125px;
+      transform: rotateX(90deg);
+    }
+    
+    #bottom{
+      top: 125px;
+      transform: rotateX(-90deg);
+    }
+
+  img{
+    width: 200px;
+  }
+
+
+  </style>
+<body>
+
+  <div class="container">
+    <div class="box">
+      <div class="card" id="front"><img src="180132984_2826966717565179_6125739506177095246_n-removebg-preview.png"></span><a href="https://mail.google.com/mail/u/0/#inbox"></a></div>
+      <div class="card" id="back">Back</div>
+      <div class="card" id="left">Left</div>
+      <div class="card" id="right">Right</div>
+      <div class="card" id="top">Top</div>
+      <div class="card" id="bottom">Bottom</div>
+    </div>
+  </div>
+  
+</body>
+</html>
