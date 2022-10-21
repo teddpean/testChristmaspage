@@ -142,7 +142,7 @@
         transition-delay: 0.25s;
       }
 
-      .wrapper:active .letter{
+      .wrapper:hover .letter{
         transform: translateY(-260px);
         transition-delay: 0.5s;
       }
@@ -351,6 +351,15 @@
       .wrapper:hover .letter{
         transform: translateY(-250px);
         transition-delay: 0.5s;
+      }
+      .wrapper:active.lid.one{
+        transform: rotateX(90deg);
+        transition-delay: 0s;
+      }
+
+      .wrapper:active .lid.two{
+        transform: rotateX(180deg);
+        transition-delay: 0.25s;
       }
   }
 
